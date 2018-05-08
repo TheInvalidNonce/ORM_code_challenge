@@ -1,0 +1,19 @@
+{
+  "name": "orm_code_challenge",
+  "version": "1.0.0",
+  "description": "Open Road Media code challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheInvalidNonce/orm_code_challenge.git"
+  },
+  "author": "Janusz Szubert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheInvalidNonce/orm_code_challenge/issues"
+  },
+  "homepage": "https://github.com/TheInvalidNonce/orm_code_challenge#readme"
+}
