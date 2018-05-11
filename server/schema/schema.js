@@ -9,7 +9,7 @@ const {
   GraphQLString,
   GraphQLList,
   GraphQLID,
-  GraphQLInt
+  GraphQLInt,
   GraphQLNonNull,
 } = require('graphql')
 
@@ -23,7 +23,6 @@ const BookType = new GraphQLObjectType({
     price: {type: GraphQLString},
     image: {type: GraphQLString}
 
-    ''
   })
 })
 
@@ -54,11 +53,5 @@ const RootQuery = new GraphQLObjectType({
 module.exports = new GraphQLSchema({
   query: RootQuery
 })
-// const AuthorType = new GraphQLObjectType({
-//   name: 'Author',
-//   description: 'This is an author.',
-//   fields: () => ({
-    
-//   })
-// })
+
 
