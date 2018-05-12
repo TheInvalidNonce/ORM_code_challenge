@@ -1,34 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react'
 import { gql } from 'apollo-boost'
 import { graphql } from 'react-apollo'
 
-class BookList extends React.Component {
+class BookList extends Component {
   state = {
-    page: 1
+    page: 1,
   }
-
   nextPage = () => {
     this.props.data.fetchMore({
       variables: { page: this.state.page + 1 },
       updateQuery: (prev, { fetchMoreResult }) => {
         this.setState({
-          page: this.state.page + 1
+          page: this.state.page + 1,
         })
-
-
         if (fetchMoreResult.books.length === 0) {
           return Object.assign({}, prev, {
-            books: [...prev.books]
+            books: [...prev.books],
           })
         }
         return Object.assign({}, prev, {
-          books: [...fetchMoreResult.books]
+          books: [...fetchMoreResult.books],
         })
-      }
+      },
     })
   }
-
-
   render() {
     if (this.props.data.loading) {
       return null
@@ -36,10 +31,9 @@ class BookList extends React.Component {
     const renderBooks = this.props.data.books.map(book => {
       return <li key={book._id}>{book.title}</li>
     })
-
     return (
       <div>
-        <ul id='list'>{renderBooks}</ul>
+        <ul id="list">{renderBooks}</ul>
         <button onClick={this.nextPage}>Next</button>
       </div>
     )
@@ -58,7 +52,7 @@ const getBooksQuery = gql`
 export default graphql(getBooksQuery, {
   options: {
     variables: {
-      page: 1
-    }
-  }
+      page: 1,
+    },
+  },
 })(BookList)
